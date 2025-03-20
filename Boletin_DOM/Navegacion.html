@@ -41,7 +41,9 @@
         //Asignarle tamaño de fuente
         miDiv.style.fontSize = "1.5rem";
 
-        miDiv.insertAdjacentHTML("beforeend","<p id='parrafo2' onclick='alert()'>parrafo2</p>");
+        //Agregar parrafo con manipulación isertAdjacentHTML
+        miDiv.insertAdjacentHTML("beforeend", "<p id='parrafo2' onclick='alert()'>parrafo2</p>");
+        /*Crear parrafo con elementos*/
         let nuevoParrafo = document.createElement("p");
         nuevoParrafo.innerHTML = "Parrafo3";
         nuevoParrafo.style.color = "purple";
@@ -50,6 +52,16 @@
             alert("Parrafo 3")
         };
         miDiv.appendChild(nuevoParrafo);
+        /*
+        no mostrar un elemento seleccionado
+        miDiv.removeChild(miDiv.lastElementChild);
+        */
+        
+        //clonar Elemento
+        let parrafoDuplicado = miDiv.firstElementChild.cloneNode(true);
+        miDiv.insertBefore(parrafoDuplicado,miDiv.lastElementChild);    
+
+
     </script>
 </body>
 
