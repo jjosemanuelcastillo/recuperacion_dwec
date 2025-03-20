@@ -21,16 +21,35 @@
         let miDiv = document.querySelector('div');
         //Primer hijo del div que seria el parrafo
         console.log(miDiv.children[0]);
-
         //Segundo hijo
         console.log(miDiv.children[1]);
 
         //lista Manzana
         let liManzana = miDiv.children[1].children[1];
-        console.log(liManzana.innerHTML);
+        console.log(liManzana);
 
         //Parrafo desde manzana
-        console.log(liManzana.parentElement.previousElementSibling);
+        let miParrafo = liManzana.parentElement.previousElementSibling;
+        console.log(miParrafo.innerHTML);
+
+        //Asignar valor al parrafo
+        miParrafo.innerHTML = "Parrafo";
+        //Asignar id al parrafo
+        miParrafo.id = "parrafo1";
+        //Asignarle color al parrafo desde la propiedad style
+        miParrafo.style.color = "aqua";
+        //Asignarle tamaño de fuente
+        miDiv.style.fontSize = "1.5rem";
+
+        miDiv.insertAdjacentHTML("beforeend","<p id='parrafo2' onclick='alert()'>parrafo2</p>");
+        let nuevoParrafo = document.createElement("p");
+        nuevoParrafo.innerHTML = "Parrafo3";
+        nuevoParrafo.style.color = "purple";
+        nuevoParrafo.id = "Parrafo3";
+        nuevoParrafo.onclick = () => {
+            alert("Parrafo 3")
+        };
+        miDiv.appendChild(nuevoParrafo);
     </script>
 </body>
 
