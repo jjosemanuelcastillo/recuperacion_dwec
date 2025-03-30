@@ -134,28 +134,47 @@ function crearHorario() {
 
     let thHorario = document.createElement("th");
     thHorario.textContent = "Horario";
-    tr.appendChild(thHorario);  
+    thHorario.style.border = "solid 1px";
+    tr.appendChild(thHorario);
     dias.forEach(dia => {
         let th = document.createElement("th");
         th.textContent = dia.nombre;
+        th.style.border = "solid 1px";
         tr.appendChild(th);
     });
 
 
     thead.appendChild(tr);
+    thead.style.border = "solid 1px";
     idHorario.appendChild(thead);
-    idHorario.style.border = "solid 1px";
 
-    let thead2 = document.createElement("thead");
     tramos.forEach(tramo => {
         let tr = document.createElement("tr");
         let th = document.createElement("th");
         th.textContent = ` ${tramo.hora} ${tramo.descripcion}`;
+        th.style.border = "solid 1px";
         tr.appendChild(th);
-        thead2.appendChild(tr);
+
+        let hor = horario.find((h) => h.idTramo == tramo.id)
+        dias.forEach(dia => {
+            let th = document.createElement("th");
+            let asig = hor.asignaturas.find((a) => a.idDia == dia.id);
+            if (asig) {
+                let asignatura = obtenerAsignatura(asig.idAsignatura);
+                th.textContent = asignatura.nombre;
+                th.style.backgroundColor = asignatura.color;
+            } else {
+                th.textContent = "-";
+            }
+            th.style.border = "solid 1px";
+            tr.appendChild(th);
+        });
+        thead.appendChild(tr);
     });
-    
-    idHorario.appendChild(thead2);
+
+
+    idHorario.appendChild(thead);
+
 }
 
 document.getElementById("inputCrearHorario").addEventListener("click", crearHorario);
