@@ -23,7 +23,7 @@ function cargarCategorias() {
 	idCategorias.innerHTML = "";
 	let textoCategorias = "";
 	CATEGORIAS.forEach(element => {
-		textoCategorias += `<div class="col"><h1><span class="badge bg-info cursor-pointer">${element.nombre}</span></h1></div>`
+		textoCategorias += `<div class="col"><h1><span onclick="filtrarProductos(${element.id})" class="badge bg-info cursor-pointer">${element.nombre}</span></h1></div>`
 	});
 
 	idCategorias.innerHTML = textoCategorias;
@@ -41,7 +41,7 @@ function cargarProductos() {
 		<div class="card-body">
 		<h5 class="card-title">${element.nombre}</h5>
 		<p class="card-text">${element.descripcion}</p>
-		<a href="#" class="btn btn-primary">Características</a>
+		<a href="#" class="btn btn-primary" onclick="cargarCaracteristicas(${element.id})">Características</a>
 		</div>
 		</div>`;
 	});
@@ -54,12 +54,54 @@ function filtrarProductos(idCategoria) {
 	let productosFiltrados = [];
 
 	for (let index = 0; index < PRODUCTOS.length; index++) {
-		if (PRODUCTOS[index].categoria = idCategoria) {
+		if (PRODUCTOS[index].categoria == idCategoria) {
 			productosFiltrados.push(PRODUCTOS[index]);
 		}
 
 	}
+
+	
+	// Actualiza la lista de productos en el DOM
+	let idGEneralProductos = document.getElementById("productos");
+	idGEneralProductos.innerHTML = "";
+	let textoProductos = "";
+	idGEneralProductos.className = "row";
+	productosFiltrados.forEach(element => {
+		textoProductos += `<div class="card" style="width: 18rem;">
+			<img src="images/${element.imagen}" class="card-img-top" alt="">
+			<div class="card-body">
+				<h5 class="card-title">${element.nombre}</h5>
+				<p class="card-text">${element.descripcion}</p>
+				<a href="#" class="btn btn-primary" onclick="cargarCaracteristicas(${element.id})">Características</a>
+			</div>
+		</div>`;
+	});
+
+	idGEneralProductos.innerHTML = textoProductos;
 }
+
+function cargarCaracteristicas(id){
+	let producto = [];
+	let idCaracteristicas = document.getElementById("caracteristicas");
+	idCaracteristicas.innerHTML = "";
+	let txtCarac = "";
+	PRODUCTOS.forEach(element => {
+		if(element.id == id){
+			producto.push(element);
+		}
+	});
+	
+
+	producto.forEach(element => {
+		txtCarac += `<li class="list-group-item d-flex justify-content-between lh-sm"><h6 class="my-0">${element.caracteristicas}</h6></li>`;
+	});
+
+
+	idCaracteristicas.innerHTML = txtCarac;
+
+
+}
+
 
 console.log(filtrarProductos(1))
 addEventListener("DOMContentLoaded", cargarCategorias)
