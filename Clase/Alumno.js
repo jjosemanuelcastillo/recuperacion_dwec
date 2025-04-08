@@ -8,11 +8,9 @@ class Alumno{
     }
 
     agregarNotas(...nota){
-        this._notas.push(nota);
+        this._notas.push(...nota);
 
-        this._notas.forEach(element => {
-            element
-        });
+        
     }
 
     obtenerCorreoCorporativo(){
@@ -24,11 +22,43 @@ class Alumno{
     }
 
     obtenerNotaMedia(){
-        
+        let notaMedia = 0;
+        this._notas.forEach(element => {
+            notaMedia += element.nota;
+        });
+
+        notaMedia /= this._notas.length;
+
+        return notaMedia;
     }
 }
 
+
+class Aula{
+
+    constructor(numeroAula,nombreAula){
+        this._numeroAula = numeroAula;
+        this._nombreAula = nombreAula;
+        this._Alumnos = [];
+    }
+
+    get numeroALumnos(){
+        return this._Alumnos.length;
+    }
+
+    obtenerAlumnos(alumno){
+        this._Alumnos.push(alumno);
+    }
+}
 let alumno1 = new Alumno("pepe","Calle","Castillo","20503626T");
+let alumno2 = new Alumno("pepe","Calle","Castillo","20503626T");
 
 alumno1.obtenerCorreoCorporativo();
+alumno2.obtenerCorreoCorporativo();
 alumno1.agregarNotas({asignatura:"DWEC", nota: 6.2}, {asignatura: "DWEC", nota: 7.1}, {asignatura:"DIW", nota: 8.7});
+alumno2.agregarNotas({asignatura:"DWEC", nota: 6.2}, {asignatura: "DWEC", nota: 7.1}, {asignatura:"DIW", nota: 8.7});
+console.log(alumno1.obtenerNotaMedia());
+let aula1 = new Aula("9B","2º DAW");
+aula1.obtenerAlumnos(alumno1);
+aula1.obtenerAlumnos(alumno2);
+console.log(aula1.numeroALumnos);
