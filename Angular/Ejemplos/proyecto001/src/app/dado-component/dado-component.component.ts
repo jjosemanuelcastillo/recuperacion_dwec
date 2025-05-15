@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './dado-component.component.css'
 })
 export class DadoComponentComponent {
-
+  dado = 1;
 }

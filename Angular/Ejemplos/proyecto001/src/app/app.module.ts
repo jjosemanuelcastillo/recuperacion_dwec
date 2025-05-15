@@ -8,7 +8,7 @@ import { DadoComponentComponent } from './dado-component/dado-component.componen
 @NgModule({
   declarations: [
     AppComponent,
-    DadoComponentComponent
+    DadoComponentComponent,
   ],
   imports: [
     BrowserModule,
