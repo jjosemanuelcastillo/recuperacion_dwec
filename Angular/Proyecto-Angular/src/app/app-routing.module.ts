@@ -12,7 +12,10 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path:'**', component: Error404Component
+    path: 'error', component: Error404Component
+  },
+  {
+    path:'**', redirectTo: 'error'
   }
 ];
 
