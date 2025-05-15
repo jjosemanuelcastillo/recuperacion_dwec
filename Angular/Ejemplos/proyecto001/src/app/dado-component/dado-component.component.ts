@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './dado-component.component.html',
   styleUrl: './dado-component.component.css'
 })
-export class DadoComponentComponent {
-  dado = 1;
+export class DadoComponent {
+   dado = 0;
+   aleatorio(){
+    this.dado  = Math.floor(Math.random()*6+1);
+  }
 }
+
+
