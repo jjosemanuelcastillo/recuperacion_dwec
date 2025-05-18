@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { Error404Component } from './error-404/error-404.component';
 import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; // 👈 Esto es lo que falta
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { provideHttpClient } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient()

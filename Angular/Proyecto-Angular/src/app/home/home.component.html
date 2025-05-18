@@ -1,13 +1,40 @@
-<div *ngIf="articulos!=null; else espera">
-  <table border="1">
-    <tr>
-      <td>Codigo</td><td>Descripcion</td><td>Precio</td>
-    </tr>
-    <tr *ngFor="let art of articulos">
-      <td>{{art.codigo}}</td>
-      <td>{{art.descripcion}}</td>
-      <td>{{art.precio}}</td>
-    </tr>
-  </table>
+<div class="input-group mb-4">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Buscar producto..."
+    [(ngModel)]="terminoBusqueda"
+  />
+  <button class="btn btn-outline-secondary" type="button" (click)="filtrarProductos()">
+    <i class="bi bi-search"></i>
+  </button>
 </div>
-<ng-template #espera>Esperando datos...</ng-template>
+
+
+<div class="container my-4">
+  <h2 class="text-center mb-4">Bienvenido a la tienda</h2>
+
+  <div *ngIf="productos.length > 0; else cargando" class="row">
+    <div *ngFor="let producto of productos" class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img [src]="producto.thumbnail" class="card-img-top" [alt]="producto.title">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ producto.title }}</h5>
+          <p class="card-text">{{ producto.description }}</p>
+          <div class="mt-auto">
+            <p class="fw-bold">Precio: ${{ producto.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #cargando>
+    <div class="text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando productos...</span>
+      </div>
+      <p class="mt-2">Cargando productos...</p>
+    </div>
+  </ng-template>
+</div>
