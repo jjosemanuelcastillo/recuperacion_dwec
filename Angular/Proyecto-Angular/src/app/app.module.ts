@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { Error404Component } from './error-404/error-404.component';
 import { provideHttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // 👈 Esto es lo que falta
+import { FormsModule } from '@angular/forms';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    Error404Component
+    Error404Component,
   ],
   imports: [
     BrowserModule,

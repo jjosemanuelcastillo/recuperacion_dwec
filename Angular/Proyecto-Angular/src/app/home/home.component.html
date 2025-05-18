@@ -1,15 +1,14 @@
-<div class="input-group mb-4">
-  <input
-    type="text"
-    class="form-control"
-    placeholder="Buscar producto..."
-    [(ngModel)]="terminoBusqueda"
-  />
-  <button class="btn btn-outline-secondary" type="button" (click)="filtrarProductos()">
-    <i class="bi bi-search"></i>
-  </button>
-</div>
 
+<form (ngSubmit)="enviarFormulario()" #formulario="ngForm">
+  <input type="text" name="title" [(ngModel)]="nuevoProducto.title" placeholder="Título" required
+    class="form-control mb-2">
+  <input type="text" name="description" [(ngModel)]="nuevoProducto.description" placeholder="Descripción" required
+    class="form-control mb-2">
+  <input type="number" name="price" [(ngModel)]="nuevoProducto.price" placeholder="Precio" required
+    class="form-control mb-2">
+
+  <button class="btn btn-primary" type="submit">Agregar producto</button>
+</form>
 
 <div class="container my-4">
   <h2 class="text-center mb-4">Bienvenido a la tienda</h2>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { Error404Component } from './error-404/error-404.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 const routes: Routes = [
 
@@ -10,6 +11,9 @@ const routes: Routes = [
   },
   {
     path: 'home', component: HomeComponent
+  },
+  {
+    path:'busqueda', component: BusquedaComponent
   },
   {
     path: 'error', component: Error404Component
@@ -23,5 +27,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 }
