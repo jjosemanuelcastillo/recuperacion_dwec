@@ -8,17 +8,20 @@ import { Error404Component } from './error-404/error-404.component';
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ListaProductosComponent } from './lista-productos/lista-productos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     Error404Component,
+    ListaProductosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [
     provideHttpClient()

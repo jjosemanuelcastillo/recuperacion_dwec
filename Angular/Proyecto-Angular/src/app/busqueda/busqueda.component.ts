@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../service/producto.service';
-import { CommonModule } from '@angular/common'; // <-- importa esto
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-busqueda',
-  standalone: true, // ✅ mantener esto
-  imports: [CommonModule, FormsModule], //
+  imports: [CommonModule, FormsModule],
   templateUrl: './busqueda.component.html',
   styleUrl: './busqueda.component.css'
 })
