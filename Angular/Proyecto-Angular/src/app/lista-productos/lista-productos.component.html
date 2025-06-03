@@ -5,36 +5,14 @@
     class="form-control mb-2">
   <input type="number" name="price" [(ngModel)]="nuevoProducto.price" placeholder="Precio" required
     class="form-control mb-2">
+  <input type="file" (change)="cargarImagen($event)" accept="image/*">
+  !-- Vista previa opcional -->
+  <div *ngIf="nuevoProducto.imagen">
+    <img [src]="nuevoProducto.imagen" alt="Vista previa" width="100">
+  </div>
 
   <button class="btn btn-primary" type="submit">Agregar producto</button>
 </form>
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="busqueda">Buscar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-'https://dummyjson.com/products?sortBy=title&order=asc'
 <div class="container my-4">
 
   <h2 class="text-center mb-4">Bienvenido a la tienda</h2>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductoService } from '../service/producto.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lista-productos',
@@ -10,23 +9,24 @@ import { Observable } from 'rxjs';
   styleUrl: './lista-productos.component.css'
 })
 export class ListaProductosComponent {
-productos: any[] = [];
+  productos: any[] = [];
   productosOriginales: any[] = [];
   nuevoProducto = {
     title: '',
     description: '',
-    price: 0
+    price: 0,
+    imagen: ""
   };
 
 
   constructor(private ProductoService: ProductoService, private http: HttpClient) { }
 
   ngOnInit(): void {
-  this.ProductoService.obtenerProductos().subscribe(res => {
-    this.productos = res.products;
-    this.ProductoService.setProductos(this.productos); // Guardar en el servicio
-  });
-}
+    this.ProductoService.obtenerProductos().subscribe(res => {
+      this.productos = res.products;
+      this.ProductoService.setProductos(this.productos); // Guardar en el servicio
+    });
+  }
 
 
 
@@ -43,8 +43,19 @@ productos: any[] = [];
       this.productosOriginales.push(res); // Para que también esté en la copia original
 
       // Limpia el formulario
-      this.nuevoProducto = { title: '', description: '', price: 0 };
+      this.nuevoProducto = { title: '', description: '', price: 0, imagen: "" };
     });
   }
+
+ cargarImagen(event: any): void {
+  const archivo = event.target.files[0];
+  if (archivo) {
+    const lector = new FileReader();
+    lector.onload = () => {
+      this.nuevoProducto.imagen = lector.result as string;
+    };
+    lector.readAsDataURL(archivo); // Esto convierte la imagen a base64
+  }
+}
 
 }
