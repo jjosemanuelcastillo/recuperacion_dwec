@@ -1,4 +1,4 @@
-<div class="input-group mb-4">
+<div class="input-group mb-4 w-50 m-auto">
   <input type="text" class="form-control" placeholder="Buscar producto..." [(ngModel)]="terminoBusqueda" />
   <button class="btn btn-outline-secondary" type="button" (click)="filtrarProductos()">
     <i class="bi bi-search"></i>
@@ -9,7 +9,9 @@
     <div *ngFor="let producto of productosFiltrados" class="card w-25 m-auto mb-2 p-2">
 
       <img [src]="producto.thumbnail" class="card-img-top" [alt]="producto.title">
-      <h5>{{ producto.title }}</h5>
+      <li *ngFor="let producto of productos | filtroProductos:terminoBusqueda">
+        {{ producto.title }}
+      </li>
       <p>{{ producto.description }}</p>
       <span>Precio: {{ producto.price }}€</span>
     </div>

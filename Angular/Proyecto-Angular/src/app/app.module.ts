@@ -9,6 +9,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { ListaProductosComponent } from './lista-productos/lista-productos.component';
+import { AcercaDeComponent } from './acerca-de/acerca-de.component';
+import { FiltroProductosPipe } from './pipes/filtro-productos.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ListaProductosComponent } from './lista-productos/lista-productos.compo
     HomeComponent,
     Error404Component,
     ListaProductosComponent,
+    AcercaDeComponent,
+    FiltroProductosPipe,
   ],
   imports: [
     BrowserModule,

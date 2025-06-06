@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { Error404Component } from './error-404/error-404.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { ListaProductosComponent } from './lista-productos/lista-productos.component';
+import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,9 @@ const routes: Routes = [
   },
   {
     path:'lista',component:ListaProductosComponent
+  },
+  {
+    path:'acercade', component:AcercaDeComponent
   },
   {
     path: 'error', component: Error404Component

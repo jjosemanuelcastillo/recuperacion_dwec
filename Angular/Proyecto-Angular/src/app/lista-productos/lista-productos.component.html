@@ -1,18 +1,4 @@
-<form (ngSubmit)="enviarFormulario()" #formulario="ngForm">
-  <input type="text" name="title" [(ngModel)]="nuevoProducto.title" placeholder="Título" required
-    class="form-control mb-2">
-  <input type="text" name="description" [(ngModel)]="nuevoProducto.description" placeholder="Descripción" required
-    class="form-control mb-2">
-  <input type="number" name="price" [(ngModel)]="nuevoProducto.price" placeholder="Precio" required
-    class="form-control mb-2">
-  <input type="file" (change)="cargarImagen($event)" accept="image/*">
-  !-- Vista previa opcional -->
-  <div *ngIf="nuevoProducto.imagen">
-    <img [src]="nuevoProducto.imagen" alt="Vista previa" width="100">
-  </div>
 
-  <button class="btn btn-primary" type="submit">Agregar producto</button>
-</form>
 <div class="container my-4">
 
   <h2 class="text-center mb-4">Bienvenido a la tienda</h2>
