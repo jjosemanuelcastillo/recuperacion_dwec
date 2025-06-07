@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../service/producto.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FiltroProductosPipe } from "../pipes/filtro-productos.pipe";
 
 @Component({
   selector: 'app-busqueda',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, FiltroProductosPipe],
   templateUrl: './busqueda.component.html',
   styleUrl: './busqueda.component.css'
 })

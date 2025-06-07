@@ -18,8 +18,7 @@ import { FiltroProductosPipe } from './pipes/filtro-productos.pipe';
     HomeComponent,
     Error404Component,
     ListaProductosComponent,
-    AcercaDeComponent,
-    FiltroProductosPipe,
+    AcercaDeComponent
   ],
   imports: [
     BrowserModule,
